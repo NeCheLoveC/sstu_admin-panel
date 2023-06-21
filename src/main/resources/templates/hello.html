@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Административная панель</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="container">
+                <div class="header_menu-line">
+                    <div class="header_menu_text-element selected_element"><a th:href="@{/}">Редактироние меню</a></div>
+                    <div class="header_menu_text-element"><a th:href="@{/message}">Массовая рассылка</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="main_block">
+            <div class="container">
+                <div class="indent">
+                    <div class="current_root_name" th:text="${current_node.getName()}"></div>
+                    <div class="line_button">
+                        <a class="button line_button_element"
+                           id="button_add_node"
+                           th:href="@{/node/add_form(parentNode=${current_node.getId()})}">
+                            Добавить узел
+                        </a>
+                        <a class="button line_button_element"
+                           th:if="${not(current_node.isRootNode())}"
+                           th:href="@{/(currentNodeId=${root_node.getId()})}">
+                            Главное меню
+                        </a>
+                        <a class="button line_button_element"
+                           th:if="${not(current_node.isRootNode())}"
+                           th:href="@{/(currentNodeId=${current_node.getParent().getId()})}">
+                            Назад
+                        </a>
+                    </div>
+                    <div class="child_nodes" th:if="${not nodes.isEmpty()}">
+                        <div th:each="node,iter : ${nodes}">
+                            <a class = "node_wrapper" th:href="@{/(currentNodeId=${node.id})}">
+                                <div class="wrapper_node_name">
+                                    <div class="line_number_nodes" th:text="'№' + ${iter.count}"></div>
+                                    <span>Название узла: </span>
+                                    <span class="node_name" th:text="${node.name}"></span>
+                                </div>
+                                <div th:if="${not(node.text == null || node.text.isEmpty() || node.text.isBlank())}">
+                                    <span>Текст узла: </span>
+                                    <br/>
+                                    <pre class="node_text" th:text="${node.text}"></pre>
+                                </div>
+                            </a>
+                            <div>
+                                <div class="crud_button_line">
+                                    <form th:action="@{/node/delete}" method="post">
+                                        <input type="text" name="id" th:value="${node.id}" hidden="hidden">
+                                        <button class="button_delete" type="submit">
+                                            <img class="img_crud img_delete" th:src="@{img/delete.jpg}" alt="Удаление">
+                                        </button>
+                                    </form>
+                                    <a class="edit_node_button" th:href="@{/node/editform(node_id = ${node.id})}">
+                                        Редактировать
+                                    </a>
+                                </div>
+                            </div>
+                            </br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

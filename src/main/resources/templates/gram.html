@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Административная панель</title>
+    <link rel="stylesheet" th:href="@{/message/style.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="container">
+                <div class="header_menu-line">
+                    <div class="header_menu_text-element"><a th:href="@{/}">Редактироние меню</a></div>
+                    <div class="header_menu_text-element selected_element"><a th:href="@{/message}">Массовая рассылка</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="main_block">
+            <div class="container">
+                <div class="indent">
+                    <div class="wrapper_message_list">
+                        <div th:if="${not list_messages.isEmpty()}">
+                            <div th:each="mes,iter : ${list_messages}">
+                                <div class="wrapper_message_element">
+                                    <div class="text" th:text="${#dates.format(mes.created, 'HH:mm yyyy-MM-dd')}">
+                                    </div>
+                                    <div class="text">
+                                    </div>
+                                    <pre th:text="${mes.text}">
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="#" th:action="@{/message/add}" method="post" th:object="${message}">
+                            <div class="label_for_input">
+                                <label for="text">Собщение</label>
+                                <br/>
+                            </div>
+                            <div class="wrapper_button_and_input">
+                                <textarea id="text" th:field="*{text}" cols="50" rows="10"></textarea>
+                                <div class="line_button">
+                                    <input id="submit_button" type="submit" value="Опубликовать" name="submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

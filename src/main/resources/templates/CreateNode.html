@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание узла</title>
+    <link rel="stylesheet" th:href="@{style2.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="container">
+                <div class="header_menu-line">
+                    <div class="header_menu_text-element selected_element"><a th:href="@{/}">Редактироние меню</a></div>
+                    <div class="header_menu_text-element"><a th:href="@{/message}">Массовая рассылка</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_block">
+            <div class="container">
+                <div class="indent">
+                    <form method="post" th:action="@{/node/add}" th:object="${node}">
+                        <div>
+                            <div>
+                                <label for="name">Имя узла</label>
+                            </div>
+                            <input id="name" type="text" th:field="*{name}" required>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="text">Текст узла</label>
+                            </div>
+                            <textarea id="text" th:field="*{text}" maxlength="10000" rows="20" cols="50"/>
+                        </div>
+                        <div class="button_line">
+                            <div>
+                                <button class="button button_add" type="submit" name="action" value="create">Создать</button>
+                            </div>
+                            <div class="button_cancel">
+                                <a th:href="@{/(currentNodeId = ${parent_node})}">Отмена</a>
+                            </div>
+                        </div>
+                        <input type="text" name="parentNode" th:value="${parent_node}" hidden="hidden">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

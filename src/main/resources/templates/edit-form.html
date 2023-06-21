@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование узла</title>
+    <link rel="stylesheet" th:href="@{/node/edit/style1.css}">
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="header">
+      <div class="container">
+        <div class="header_menu-line">
+          <div class="header_menu_text-element selected_element"><a th:href="@{/}">Редактироние меню</a></div>
+          <div class="header_menu_text-element"><a th:href="@{/message}">Массовая рассылка</a></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="main_block">
+      <div class="container">
+        <div class="indent">
+          <div>
+            <form method="post" th:action="@{/node/update}" th:object="${node}">
+              <div>
+                <div>
+                  <label for="name">Имя узла</label>
+                </div>
+                <input id="name" type="text" th:field="*{name}" th:value="*{name}" required>
+              </div>
+              <div>
+                <div>
+                  <label for="text">Текст узла</label>
+                </div>
+                <textarea id="text" th:field="*{text}" maxlength="10000" rows="20" cols="50"/>
+
+                <div class="button_line_edit">
+                  <div>
+                    <button class="button_add" type="submit" name="action" value="create">Сохранить</button>
+                  </div>
+                  <div class="button_cancel">
+                    <a th:href="@{/(currentNodeId = *{parent.getId()})}">Отмена</a>
+                  </div>
+                </div>
+              </div>
+
+              <input id="id" type="text" th:field="*{id}" hidden="hidden">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

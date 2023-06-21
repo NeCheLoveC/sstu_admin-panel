@@ -1,0 +1,271 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: Arial Narrow, sans-serif;*/
+}
+
+body
+{
+    background-color: whitesmoke;
+}
+
+a
+{
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+}
+
+
+.container
+{
+    margin: 0 auto;
+    width: 1000px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+
+.header_menu-line
+{
+    display: flex;
+    height: 32px;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.header_menu_text-element
+{
+    flex-basis: 280px;
+    padding: 5px 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line_button
+{
+    /*padding-top: 10px;*/
+    display: flex;
+    align-items: center;
+}
+
+.button
+{
+    width: 100px;
+    height: 20px;
+    font-size: 11px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.node_wrapper
+{
+    display: block;
+    margin-top: 15px;
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.line_button_element
+{
+    width: 80px;
+    display: block;
+    text-align: center;
+    background: #FFFFFFFF;
+    margin: 3px 10px 3px 0;
+}
+
+.current_root_name
+{
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.indent
+{
+    padding: 0 25px 10px 25px;
+}
+
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+.main_block
+{
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+.node_name
+{
+    font-weight: bold;
+}
+
+.node_text
+{
+    font-style: italic;
+}
+
+.child_nodes
+{
+    padding: 5px 8px;
+    border: 2px black solid;
+    border-radius: 2px;
+}
+
+.line_number_nodes
+{
+    border-bottom: 1px black solid;
+}
+
+.img_crud
+{
+    width: 100%;
+    height: 100%;
+}
+
+button
+{
+    border: 1px whitesmoke solid;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.img_delete
+{
+    height: 100%;
+    width: 100%;
+    background-image: url("static/img/delete.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 0;
+
+}
+
+.edit_node_button
+{
+    margin-left: 10px;
+    width: 100px;
+    height: 20px;
+    display: block;
+    background-color: #F5F5F5;
+}
+
+.crud_button_line
+{
+    display: flex;
+    justify-content: end;
+    padding-top: 10px;
+    align-items: stretch;
+}
+
+.button_delete
+{
+    height: 20px;
+}
+
+textarea
+{
+    width: 300px;
+    height: 300px;
+    resize: none;
+    border-radius: 3px;
+}
+
+label
+{
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+
+.form_add
+{
+    margin: 10px 500px 30px 0;
+    border: 1px black solid;
+    padding: 10px ;
+}
+
+#name
+{
+    width: 300px;
+}
+
+input
+{
+    border-radius: 3px;
+}
+
+textarea, input
+{
+    padding: 3px;
+}
+
+.button_add
+{
+    display: flex;
+    width: 90px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border: 1px #b1e4fa solid;
+    background: #b1e4fa;
+    border-radius: 5px;
+    padding: 5px 5px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+}
+
+.button_add:hover
+{
+    border: 1px #13aff2 solid;
+    background: #13aff2;
+}
+
+.button_line_edit
+{
+    display: flex;
+    justify-content: end;
+    margin-top: 7px;
+}
+
+form
+{
+    width: 310px;
+    padding-right: 22px;
+}
+
+.button_cancel
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 25px;
+    border: 2px whitesmoke solid;
+    background: whitesmoke;
+    border-radius: 5px;
+}
+
+.button_cancel:hover
+{
+    background-color: #b6edf0;
+    border: 2px #b6edf0 solid;
+}
+
+.selected_element
+{
+    border-bottom: 1px black solid;
+}
