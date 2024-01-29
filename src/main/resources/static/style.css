@@ -123,6 +123,7 @@ input, textarea
 .node_text
 {
     font-style: italic;
+    line-height: 18px;
 }
 
 .child_nodes

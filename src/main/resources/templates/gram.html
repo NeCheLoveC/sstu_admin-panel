@@ -10,7 +10,7 @@
         <div class="header">
             <div class="container">
                 <div class="header_menu-line">
-                    <div class="header_menu_text-element"><a th:href="@{/}">Редактироние меню</a></div>
+                    <div class="header_menu_text-element"><a th:href="@{/}">Редактирование меню</a></div>
                     <div class="header_menu_text-element selected_element"><a th:href="@{/message}">Массовая рассылка</a></div>
                 </div>
             </div>
@@ -24,8 +24,6 @@
                                 <div class="wrapper_message_element">
                                     <div class="text" th:text="${#dates.format(mes.created, 'HH:mm yyyy-MM-dd')}">
                                     </div>
-                                    <div class="text">
-                                    </div>
                                     <pre th:text="${mes.text}">
                                     </pre>
                                 </div>
@@ -34,7 +32,7 @@
 
                         <form action="#" th:action="@{/message/add}" method="post" th:object="${message}">
                             <div class="label_for_input">
-                                <label for="text">Собщение</label>
+                                <label for="text">Сообщение</label>
                                 <br/>
                             </div>
                             <div class="wrapper_button_and_input">
